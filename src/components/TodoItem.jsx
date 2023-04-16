@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import { GrEdit, GrTrash, GrCheckboxSelected } from 'react-icons/gr';
 import useTodosContext from '../hooks/use-todos-context';
 import TodoEdit from './TodoEdit';
 
 function TodoItem({ todo }) {
   const [todoEdit, setTodoEdit] = useState(false);
-  const { deleteTodoById } = useTodosContext();
+  const { deleteTodoById, checkTodoById } = useTodosContext();
 
   const handleDelete = () => {
     deleteTodoById(todo.id);
@@ -18,6 +19,10 @@ function TodoItem({ todo }) {
     setTodoEdit(false);
   };
 
+  const handleCheck = () => {
+    checkTodoById(todo.id, todo.title, todo.text, !todo.isDone);
+  };
+
   let content = (
     <div>
       <h3> {todo.title} </h3> <p> {todo.text} </p>
@@ -28,15 +33,15 @@ function TodoItem({ todo }) {
   }
 
   return (
-    <div>
+    <div className="todoItem">
       {content}
       <aside>
-        <button className="edit" onClick={handleEdit}>
-          Edit
-        </button>
-        <button className="delete" onClick={handleDelete}>
-          Delete
-        </button>
+        <GrEdit onClick={handleEdit} className="text-lg block-icon" />
+        <GrTrash onClick={handleDelete} className="text-lg block-icon" />
+        <GrCheckboxSelected
+          onClick={handleCheck}
+          className="text-lg block-icon"
+        />
       </aside>
     </div>
   );

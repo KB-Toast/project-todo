@@ -1,14 +1,34 @@
 {
   "todos": [
     {
-      "title": "Fantastic todo app",
-      "text": "Great text ! !!",
+      "title": "Ajouter des tâches",
+      "text": "blabla",
+      "isDone": true,
       "id": 1
     },
     {
-      "title": "Other todo",
-      "text": "diusdh",
+      "title": "Editer des tâches",
+      "text": "blabli",
+      "isDone": true,
       "id": 2
+    },
+    {
+      "title": "Supprimer des tâches",
+      "text": "blablo",
+      "isDone": true,
+      "id": 3
+    },
+    {
+      "title": "Splitter \"todo\" de \"done\"",
+      "text": "blablu",
+      "isDone": true,
+      "id": 4
+    },
+    {
+      "title": "Rendre ça bÔ",
+      "text": "(grave la flemme, j'apprends pas grand chose en faisant ça :'( )",
+      "isDone": false,
+      "id": 5
     }
   ]
 }

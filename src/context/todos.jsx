@@ -11,7 +11,7 @@ function Provider({ children }) {
     setTodos(data);
   }, []);
 
-  const editTodoById = async (id, newTitle, newText) => {
+  const editTodoById = async (id, newTitle, newText, isDone) => {
     async function postData(url = '', data = {}) {
       const response = await fetch(url, {
         method: 'PUT',
@@ -34,6 +34,33 @@ function Provider({ children }) {
     postData(`http://localhost:3001/todos/${id}`, {
       title: newTitle,
       text: newText,
+      isDone,
+    });
+  };
+
+  const checkTodoById = async (id, title, text, newIsDone) => {
+    async function postData(url = '', data = {}) {
+      const response = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      const updatedTodos = todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, ...data };
+        }
+        return todo;
+      });
+
+      setTodos(updatedTodos);
+      return response.json();
+    }
+    postData(`http://localhost:3001/todos/${id}`, {
+      title,
+      text,
+      isDone: newIsDone,
     });
   };
 
@@ -68,13 +95,14 @@ function Provider({ children }) {
       setTodos(updatedTodos);
     }
 
-    postData('http://localhost:3001/todos', { title, text });
+    postData('http://localhost:3001/todos', { title, text, isDone: false });
   };
 
   const valueToShare = {
     todos,
     deleteTodoById,
     editTodoById,
+    checkTodoById,
     addTodo,
     fetchTodos,
   };

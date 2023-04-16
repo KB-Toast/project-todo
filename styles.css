@@ -1,7 +1,132 @@
 * {
     box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
 }
 
 body {
     margin: 0;
+    background: -webkit-linear-gradient(to right, #ec2F4B, #009FFF); 
+    background: linear-gradient(to right, #ec2F4B, #009FFF);
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    margin-top: 0;
+}
+
+section.todoLists {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+section.todoLists ul {
+    flex-basis: 40%;
+    min-width: 350px;
+}
+
+section.todoLists li {
+    border: 1px solid black;
+    margin: 2px;
+    padding: 3px;
+}
+
+ul.nextTodoList {
+    display: flex;
+    flex-direction: column;
+}
+
+ul.pastTodoList {
+    display: flex;
+    flex-direction: column;
+}
+
+.todoItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.block-icon {
+    display: block;
+    cursor: pointer;
+    margin: 4px;
+}
+
+.text-lg {
+    font-size: 1.6rem;
+}
+
+form#addTodo {
+    font-size: 1.5rem;
+    width: 70%;
+    margin: auto;
+}
+
+form#addTodo label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+form#addTodo .formAddTodo {
+    display: block;
+    width: 80%;
+    margin-bottom: 1rem;
+    border: 1px solid black;
+}
+
+form#addTodo .formAddTodo:hover {
+    background-color: #D8D8D8;
+    border-color: #D8D8D8;
+}
+
+.addBtn {
+  align-items: center;
+  background-color: #009FFF;
+  border: 2px solid #009FFF;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  fill: #000;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 140px;
+  outline: 0;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-bottom: 10px;
+}
+
+.addBtn:focus {
+  color: #171e29;
+}
+
+.addBtn:hover {
+  background-color: #3385ff;
+  border-color: #3385ff;
+  fill: #06f;
+}
+
+.addBtn:active {
+  background-color: #3385ff;
+  border-color: #3385ff;
+  fill: #009FFF;
 }

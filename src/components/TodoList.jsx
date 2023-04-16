@@ -5,7 +5,7 @@ function TodoList() {
   const { todos } = useTodosContext();
 
   const renderedTodos = todos.map((todo) => {
-    if (todo.id === 1) {
+    if (!todo.isDone) {
       return (
         <li key={todo.id}>
           <TodoItem todo={todo} />
@@ -15,7 +15,7 @@ function TodoList() {
   });
 
   const renderedDones = todos.map((todo) => {
-    if (todo.id !== 1) {
+    if (todo.isDone) {
       return (
         <li key={todo.id}>
           <TodoItem todo={todo} />
@@ -25,9 +25,15 @@ function TodoList() {
   });
 
   return (
-    <section>
-      <ul>{renderedTodos}</ul>
-      <ul>{renderedDones}</ul>
+    <section className="todoLists">
+      <ul className="nextTodoList">
+        <h2>Things to do</h2>
+        {renderedTodos}
+      </ul>
+      <ul className="pastTodoList">
+        <h2>Things done</h2>
+        {renderedDones}
+      </ul>
     </section>
   );
 }

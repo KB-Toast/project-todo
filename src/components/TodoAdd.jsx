@@ -22,12 +22,22 @@ function TodoAdd() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label for="title"> Title </label>
-      <input type="text" value={title} onChange={handleChangeTitle} />
-      <label for="text"> Text</label>
-      <textarea value={text} onChange={handleChangeText} />
-      <button> Add todo</button>
+    <form id="addTodo" onSubmit={handleSubmit}>
+      <label htmlFor="title"> Title </label>
+      <input
+        className="formAddTodo"
+        type="text"
+        value={title}
+        onChange={handleChangeTitle}
+      />
+      <label htmlFor="text"> Text</label>
+      <input
+        className="formAddTodo"
+        type="text"
+        value={text}
+        onChange={handleChangeText}
+      />
+      <button className="addBtn">Add todo</button>
     </form>
   );
 }

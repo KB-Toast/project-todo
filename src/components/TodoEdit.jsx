@@ -4,6 +4,7 @@ import useTodosContext from '../hooks/use-todos-context';
 function TodoEdit({ currentTodo, onSubmit }) {
   const [title, setTitle] = useState(currentTodo.title);
   const [text, setText] = useState(currentTodo.text);
+  const [isDone, setIsDone] = useState(currentTodo.isDone);
   const { editTodoById } = useTodosContext();
 
   const handleEditTitle = (event) => {
@@ -17,16 +18,16 @@ function TodoEdit({ currentTodo, onSubmit }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     onSubmit();
-    editTodoById(currentTodo.id, title, text);
+    editTodoById(currentTodo.id, title, text, isDone);
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <label> Title </label>
-        <input value={title} onChange={handleEditTitle} />
+        <input type="text" value={title} onChange={handleEditTitle} />
         <label> Text </label>
-        <textarea value={text} onChange={handleEditText} />
+        <input type="text" value={text} onChange={handleEditText} />
         <button>Save</button>
       </form>
     </div>
