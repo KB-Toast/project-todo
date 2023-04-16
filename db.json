@@ -1,0 +1,14 @@
+{
+  "todos": [
+    {
+      "title": "Fantastic todo app",
+      "text": "Great text ! !!",
+      "id": 1
+    },
+    {
+      "title": "Other todo",
+      "text": "diusdh",
+      "id": 2
+    }
+  ]
+}

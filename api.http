@@ -1,0 +1,33 @@
+# FETCH TODO
+
+GET http://localhost:3001/todos HTTP/1.1
+Content-Type: application/json
+
+
+### 
+# CREATE TODO
+
+POST http://localhost:3001/todos HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Todo item 1",
+    "text": "Text todo item 1"
+}
+
+###
+#UPDATE TODO
+
+PUT http://localhost:3001/todos/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Updated todo item 1",
+    "text": "Updated todo text"
+}
+
+###
+#DELETE TODO
+
+DELETE http://localhost:3001/todos/1 HTTP/1.1
+Content-Type: application/json
